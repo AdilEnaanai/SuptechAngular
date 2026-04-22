@@ -32,12 +32,9 @@ export class Form {
     
     const categorie=formValue.categorie;
     delete formValue.categorie;
-    console.log(formValue);
-    this.categorieService.addProduit(formValue, categorie).subscribe(response => {
-      console.log('Produit ajouté avec succès', response);
-    }, error => {
-      console.error('Erreur lors de l\'ajout du produit', error);
-    });
+
+    this.categorieService.addProduit(formValue, categorie);
+    
     this.activeModal.close(formValue); // Ferme le modal et retourne les données du formulaire
   } 
 

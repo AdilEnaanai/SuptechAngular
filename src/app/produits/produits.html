@@ -9,12 +9,12 @@
     </tr>
   </thead>
   <tbody>
-    @for (produit of produits; track produit.id) {
+    @for (produit of (produits()); track produit.id) {
       <tr>
         <th >{{$index + 1}}</th>
         <td>{{ produit.nom }}</td>
         <td>{{ produit.prix }}</td>
-        <td>{{ produit.categorie.nom }}</td>
+        <td>{{ produit.categorie }}</td>
       </tr>
     }
   
