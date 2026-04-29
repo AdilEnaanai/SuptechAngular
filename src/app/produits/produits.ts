@@ -2,7 +2,7 @@ import { Component, signal } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Form } from './form/form';
 import { Produit, Produitservice } from './service/produitservice';
-import {toSignal} from '@angular/core/rxjs-interop'
+import { Confirm } from './confirm/confirm';
 @Component({
   selector: 'app-produits',
   imports: [],
@@ -22,8 +22,22 @@ export class Produits {
     const refModal= this.modalService.open(Form);
     //récupérer les données du formulaire
     refModal.result.then(data=>{
-      console.log(data)
+      this.produits.set([...this.produits(),data])
     })
     
+  }
+
+  openDeleteModal(produit:Produit){
+    const refModal=this.modalService.open(Confirm)
+    refModal.componentInstance.nom=produit.nom
+
+    refModal.result.then(result=>{
+      if (result=="supprimer"){
+        this.produitService.deleteProduit(produit.id)
+        this.produits.update(produits=>produits.filter(p=>p.id!=produit.id))
+      }
+    })
+
+
   }
 }

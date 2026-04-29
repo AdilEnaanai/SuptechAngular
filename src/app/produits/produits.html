@@ -6,6 +6,7 @@
       <th scope="col">Nom</th>
       <th scope="col">Prix</th>
       <th scope="col">Catégorie</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,7 @@
         <td>{{ produit.nom }}</td>
         <td>{{ produit.prix }}</td>
         <td>{{ produit.categorie }}</td>
+        <td><img class="actionBTN" (click)=openDeleteModal(produit) src="https://files.softicons.com/download/toolbar-icons/vista-base-software-icons-2-by-icons-land/ico/DeleteRed.ico"></td>
       </tr>
     }
   

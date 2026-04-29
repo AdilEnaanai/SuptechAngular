@@ -33,10 +33,11 @@ export class Form {
     const categorie=formValue.categorie;
     delete formValue.categorie;
 
-    this.categorieService.addProduit(formValue, categorie);
-    
-    this.activeModal.close(formValue); // Ferme le modal et retourne les données du formulaire
-  } 
+    this.categorieService.addProduit(formValue, categorie).subscribe(response=>{
+        this.activeModal.close(response); 
+    });
+
+ } 
 
 
 }

@@ -11,3 +11,8 @@ button{
     cursor: pointer;
     float: right;
 }
+.actionBTN{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
